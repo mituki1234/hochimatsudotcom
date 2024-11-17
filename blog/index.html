@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>みつきのホームページ</title>
+        <link href="../css/blogtop.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div class="top">
+            <h1 class="logo">mitu</h1>
+            <div class="menu-list">
+                <a href="../blog" class="menu-text-box">
+                    <span class="menu-text">blog</span>
+                </a>
+                <a href="../wont" class="menu-text-box">
+                    <span class="menu-text">欲しいもの</span>
+                </a>
+                <a href="../app" class="menu-text-box">
+                    <span class="menu-text">アプリ</span>
+                </a>
+                <a href="../" class="menu-text-box">
+                    <span class="menu-text">coming!</span>
+                </a>
+            </div>
+        </div>
+        <p class="blog-text">ブログ一覧</p>
+        <div class="blog-list">
+        </div>
+    </body>
+    <script type="module">
+        import convertDate from "../js/timeparse.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+        import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDwsxBJALkD4TjMClVne2eGp7_Xto3ZL2U",
+            authDomain: "test-firebase-fbb19.firebaseapp.com",
+            databaseURL: "https://test-firebase-fbb19-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "test-firebase-fbb19",
+            storageBucket: "test-firebase-fbb19.firebasestorage.app",
+            messagingSenderId: "758585227502",
+            appId: "1:758585227502:web:e64a6f9bd045567409dbff",
+            measurementId: "G-4LKLNLSYJ3"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const blogRef = ref(db, 'blog');
+
+        // データを取得
+        get(blogRef).then((snapshot) => {
+            if (snapshot.exists()) {
+                const data = snapshot.val();
+                console.log("ブログデータ:", data);
+                let count = 0;
+                Object.values(data).forEach(blog => {
+                    count += 1;
+                    console.log(blog);
+                    var block = document.createElement('div');
+                    var background = document.createElement('img');
+                    var title = document.createElement('h2');
+                    var time = document.createElement('span');
+                    var parent = document.querySelector('.blog-list');
+                    background.className = 'blog-image';
+                    background.src = blog.background;
+                    title.className = 'blog-title';
+                    title.innerText = blog.title;
+                    time.className = 'blog-time';
+                    time.innerText = convertDate(blog.time);
+                    block.className = 'blog';
+                    block.onclick = function(){
+                        window.location.href = blog.link;
+                    }
+                    parent.appendChild(block);
+                    block.appendChild(background);
+                    block.appendChild(time);
+                    block.appendChild(title);
+                });
+            } else {
+                console.log("データが存在しません");
+            }
+        }).catch((error) => {
+            console.error("エラーが発生しました:", error);
+        });
+    </script>
+    <script src="../js/blogtop.js"></script>
+    <script src="../js/toppage.js"></script>
+</html>
