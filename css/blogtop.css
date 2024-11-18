@@ -132,23 +132,37 @@ html, body {
     margin-left: 5%;
 }
 /* レスポンシブデザイン */
-@media (max-width: 1100px) {
+@media (max-width: 3000px) {
     .blog-list {
-        grid-template-columns: 0px; /* 1列に */
+        grid-template-columns: repeat(5, 1fr); /* 2列表示に変更 */
+    }
+}
+@media (max-width: 2400px) {
+    .blog-list {
+        grid-template-columns: repeat(4, 1fr); /* 2列表示に変更 */
+    }
+}
+@media (max-width: 1800px) {
+    .blog-list {
+        grid-template-columns: repeat(3, 1fr); /* 2列表示に変更 */
+    }
+}
+/* レスポンシブデザイン */
+@media (max-width: 1200px) {
+    .blog-list {
+        grid-template-columns: repeat(2, 1fr); /* 2列表示に変更 */
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) { /* 700px以下で1列表示に変更 */
     .blog-list {
-        grid-template-columns: 1fr; /* 画面幅に合わせる */
-        padding: 1em;
-        gap: 1em;
-    }
-    .blog-image {
-        width: 100%; /* 画面幅に合わせる */
+        grid-template-columns: 1fr; /* 1列表示に変更 */
     }
     .blog {
+        width: calc(100% - 2em); /* 左右のマージン分を引く */
+        box-sizing: border-box; /* パディングとボーダーを含める */
+    }
+    .blog-image {
         width: 100%;
-        height: 300px;
     }
 }
