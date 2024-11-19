@@ -151,7 +151,6 @@ html, body {
 @media (max-width: 1200px) {
     .blog-list {
         grid-template-columns: repeat(2, 1fr); /* 2列表示に変更 */
-        width: 40%;
     }
 }
 
