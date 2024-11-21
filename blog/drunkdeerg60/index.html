@@ -47,7 +47,7 @@
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
         const blogRef = ref(db, 'blog');
-        
+
         // データを取得
         get(blogRef).then((snapshot) => {
             if (snapshot.exists()) {
@@ -57,10 +57,10 @@
                 Object.values(data).forEach(blog => {
                     if( blog.link == window.location.pathname ) {
                         let parent = document.querySelector('.main');
-                        let h3 = document.createElement('h2');
+                        let h3 = document.createElement('h3');
                         h3.className = 'main-text';
                         h3.innerText = blog.title;
-                        parent.firstChild(h3);
+                        parent.insertBefore(h3, parent.firstChild);
                     }
                 });
             } else {
