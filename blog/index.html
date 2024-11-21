@@ -48,41 +48,48 @@
         const db = getDatabase(app);
         const blogRef = ref(db, 'blog');
 
+        async function loadBlogs() {
+    try {
         // データを取得
-        get(blogRef).then((snapshot) => {
-            if (snapshot.exists()) {
-                const data = snapshot.val();
-                console.log("ブログデータ:", data);
-                let count = 0;
-                Object.values(data).forEach(blog => {
-                    count += 1;
-                    console.log(blog);
-                    var block = document.createElement('div');
-                    var background = document.createElement('img');
-                    var title = document.createElement('h2');
-                    var time = document.createElement('span');
-                    var parent = document.querySelector('.blog-list');
-                    background.className = 'blog-image';
-                    background.src = blog.background;
-                    title.className = 'blog-title';
-                    title.innerText = blog.title;
-                    time.className = 'blog-time';
-                    time.innerText = convertDate(blog.time);
-                    block.className = 'blog';
-                    block.onclick = function(){
-                        window.location.href = blog.link;
-                    }
-                    parent.appendChild(block);
-                    block.appendChild(background);
-                    block.appendChild(time);
-                    block.appendChild(title);
-                });
-            } else {
-                console.log("データが存在しません");
+        const snapshot = await get(blogRef);
+
+        if (snapshot.exists()) {
+            const data = snapshot.val();
+            console.log("ブログデータ:", data);
+            let count = 0;
+            for (const blog of Object.values(data)) {
+                count += 1;
+                console.log(blog);
+                var block = document.createElement('div');
+                var background = document.createElement('img');
+                var title = document.createElement('h2');
+                var time = document.createElement('span');
+                var parent = document.querySelector('.blog-list');
+                background.className = 'blog-image';
+                background.src = blog.background;
+                title.className = 'blog-title';
+                title.innerText = blog.title;
+                time.className = 'blog-time';
+                time.innerText = convertDate(blog.time);
+                block.className = 'blog';
+                block.onclick = function(){
+                    window.location.href = blog.link;
+                };
+                parent.appendChild(block);
+                block.appendChild(background);
+                block.appendChild(time);
+                block.appendChild(title);
             }
-        }).catch((error) => {
-            console.error("エラーが発生しました:", error);
-        });
+        } else {
+            console.log("データが存在しません");
+        }
+    } catch (error) {
+        console.error("エラーが発生しました:", error);
+    }
+}
+
+loadBlogs();
+
     </script>
     <script src="/js/blogtop.js"></script>
     <script src="/js/toppage.js"></script>
