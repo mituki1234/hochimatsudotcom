@@ -24,6 +24,7 @@
             </div>
         </div>
         <div class="main">
+            <div class="blog"></div>
         </div>
     </body>
     <script type="module">
@@ -61,7 +62,7 @@
                         let h3 = document.createElement('h2');
                         h3.className = 'main-text';
                         h3.innerText = blog.title;
-                        parent.appendChild(h3);
+                        parent.firstChild(h3);
                     }
                 }
             } else {
