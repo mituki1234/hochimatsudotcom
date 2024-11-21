@@ -47,14 +47,14 @@
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
         const blogRef = ref(db, 'blog');
+        
+        // データを取得
         get(blogRef).then((snapshot) => {
-            // データを取得
-            const snapshot = get(blogRef);
-
             if (snapshot.exists()) {
                 const data = snapshot.val();
                 console.log("ブログデータ:", data);
-                for (const blog of Object.values(data)) {
+                let count = 0;
+                Object.values(data).forEach(blog => {
                     if( blog.link == window.location.pathname ) {
                         let parent = document.querySelector('.main');
                         let h3 = document.createElement('h2');
@@ -62,14 +62,13 @@
                         h3.innerText = blog.title;
                         parent.firstChild(h3);
                     }
-                }
+                });
             } else {
                 console.log("データが存在しません");
             }
         }).catch((error) => {
             console.error("エラーが発生しました:", error);
         });
-
     </script>
     <script src="/js/blogtop.js"></script>
     <script src="/js/toppage.js"></script>
