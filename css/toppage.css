@@ -4,7 +4,7 @@
 
 .main-image {
     position: relative;
-    background-image: url(../image/main-image.jpg);
+    background-image: url(../image/main-image.webp);
     background-size: cover;
     background-position: center;
     width: 100%;
