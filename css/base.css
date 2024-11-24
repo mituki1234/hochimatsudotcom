@@ -21,6 +21,7 @@ html, body {
     font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', sans-serif;
     background-color: white;
     box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    background-color: white;
     top: 0;
     z-index: 1000;
 }
@@ -32,6 +33,7 @@ html, body {
     font-weight: 600;
     width: 30%;
     transition: all 0.3s ease;
+    font-weight: 700;
 }
 
 .menu-list {
@@ -50,6 +52,7 @@ html, body {
     color: black;
     position: relative;
     transition: color 0.3s ease;
+    font-weight: 600;
 }
 
 .menu-text::after {
