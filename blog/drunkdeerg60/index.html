@@ -2,6 +2,9 @@
 <html lang="ja">
     <head>
         <title>みつきのホームページ</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;600;700;800;900&display=swap" rel="stylesheet">
         <link href="/css/blog.css" rel="stylesheet" type="text/css">
         <link href="/css/base.css" rel="stylesheet" type="text/css">
         <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -57,11 +60,15 @@
                 let count = 0;
                 Object.values(data).forEach(blog => {
                     if( blog.link == window.location.pathname ) {
-                        let parent = document.querySelector('.main');
+                        let parent = document.querySelector('.blog');
+                        let image = document.createElement('img');
                         let h3 = document.createElement('h3');
+                        image.className = "header-image";
+                        image.src = blog.background;
                         h3.className = 'main-text';
                         h3.innerText = blog.title;
                         parent.insertBefore(h3, parent.firstChild);
+                        parent.insertBefore(image, parent.firstChild);
                     }
                 });
             } else {

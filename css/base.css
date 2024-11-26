@@ -1,13 +1,15 @@
 :root {
-    --secondary-color: #FFF1E6;
     --text-color: #2D3436;
-    --accent-color: #FF5722;
+    --background-color: #ffffff;
+    --base-font: 'Hiragino Sans';
+    --second-font: "Gothic A1";
+    --sub-font: "sans-selif";
 }
 
 html, body {
     padding: 0;
     margin: 0;
-    background-color: #FFFFFF;
+    background-color: var(--background-color);
     color: var(--text-color);
 }
 
@@ -15,22 +17,21 @@ html, body {
     margin: 0;
     padding: 1em 0;
     display: flex;
-    height: 3.5em;
-    width: 100%;
-    align-items: center;
+    height: 3em;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
     font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', sans-serif;
-    background-color: white;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-    background-color: white;
+    background-color: var(--background-color);
+    border-bottom: 1px solid #c7c7c7;
     top: 0;
-    z-index: 1000;
 }
 
 .logo {
     margin: 0;
     margin-left: 10%;
-    font-size: 2em;
-    font-weight: 600;
+    font-size: 2.3em;
+    font-family: var(--base-font), var(--second-font), var(--sub-font);
     width: 30%;
     transition: all 0.3s ease;
     font-weight: 700;
@@ -48,26 +49,27 @@ html, body {
 }
 
 .menu-text {
-    font-size: 1.2em;
-    color: black;
+    font-size: 1.5em;
+    font-family: var(--base-font), var(--second-font), var(--sub-font);
+    color: var(--text-color);
     position: relative;
     transition: color 0.3s ease;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .menu-text::after {
     content: '';
     position: absolute;
     width: 0;
-    height: 2px;
-    bottom: -5px;
+    height: 3px;
+    bottom: -25px;
     left: 0;
     background-color: black;
     transition: width 0.3s ease;
 }
 
 .menu-text:hover {
-    color: black;
+    color: var(--text-color);
 }
 
 .menu-text:hover::after {

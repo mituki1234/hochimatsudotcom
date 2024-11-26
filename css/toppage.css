@@ -1,10 +1,13 @@
+.main {
+    background-color: var(--background-color);
+}
 .main-image {
     position: relative;
     background-image: url(../image/main-image.webp);
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: 70vh;
+    height: 60vh;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
@@ -18,10 +21,20 @@
     background: linear-gradient(45deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
 }
 
+.header {
+    text-align: center;
+    font-size: 4em;
+    font-family: var(--base-font), var(--second-font), var(--sub-font);
+    font-weight: 700;
+    font-style: normal;
+    margin: 0;
+    margin-top: 1em;
+}
+
 .main-text {
     text-align: center;
-    font-size: 1.6em;
-    font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', sans-serif;
+    font-size: 1.4em;
+    font-family: var(--base-font), var(--second-font), var(--sub-font);
     margin: 0.5em 0;
     line-height: 1.6;
     font-weight: 700;
@@ -29,16 +42,23 @@
 
 .new-blog {
     padding: 3em 0;
-    background-color: #f7f7f7;
+    background-color: var(--background-color);
     margin-top: 3em;
 }
-
+.blog-text-box {
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-bottom: 1px solid black;
+}
 .blog-text {
     text-align: center;
-    font-size: 2em;
-    margin: 0 0 1.5em 0;
-    font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', sans-serif;
-    color: black;
+    font-size: 2.5em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-family: var(--base-font), var(--second-font), var(--sub-font);
+    color: var(--text-color);
+    text-align: center;
     font-weight: bold;
 }
 
