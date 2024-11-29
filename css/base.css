@@ -1,9 +1,8 @@
 :root {
     --text-color: #2D3436;
     --background-color: #ffffff;
-    --base-font: 'Hiragino Sans';
-    --second-font: 'Noto Sans JP';
-    --sub-font: "sans-selif";
+    --base-font: 'Noto Sans JP';
+    --second-font: 'sans-selif';
 }
 
 html, body {
