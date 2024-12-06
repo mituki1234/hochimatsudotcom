@@ -28,7 +28,9 @@
             </div>
         </div>
         <div class="main">
-            <div class="blog"></div>
+            <div class="blog">
+                <p class='blog-text'>どうもこんにちは　みつきです</p>
+            </div>
         </div>
     </body>
     <script type="module">
@@ -63,13 +65,16 @@
                         let parent = document.querySelector('.blog');
                         let image = document.createElement('img');
                         let h3 = document.createElement('h3');
-                        image.className = "header-image";
+                        var date = document.createElement('span');
+                        image.className = "blog-image";
+                        date.className = 'blog-date';
                         image.src = blog.background;
-                        h3.className = 'main-text';
+                        h3.className = 'blog-title';
                         h3.innerText = blog.title;
+                        date.innerText = convertDate(blog.time);
+                        parent.insertBefore(date, parent.firstChild);
                         parent.insertBefore(h3, parent.firstChild);
-                        parent.insertBefore(image, parent.firstChild);
-                    }
+                        parent.insertBefore(image, parent.firstChild);                    }
                 });
             } else {
                 console.log("データが存在しません");

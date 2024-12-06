@@ -61,7 +61,7 @@ html, body {
     position: absolute;
     width: 0;
     height: 3px;
-    bottom: -25px;
+    bottom: -20px;
     left: 0;
     background-color: black;
     transition: width 0.3s ease;
